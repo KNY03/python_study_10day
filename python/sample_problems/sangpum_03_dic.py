@@ -1,4 +1,4 @@
-dct = ({})
+dct = {}
 
 dct["code"] = (input("제품코드 입력: "))
 dct["name"]  = input("제품명 입력: ")
