@@ -7,7 +7,8 @@
 ## 📌 Repository Info
 - GitHub: https://github.com/KNY03/pyhthon_study
 - 목적: Python 문법 학습 및 실습 정리
-- 언어: Python 3
+- 언어: Python 3.11 (https://www.python.org/downloads/)
+- IDE: https://www.jetbrains.com/ko-kr/pycharm/download/?section=windows
 
 ---
 
@@ -29,11 +30,10 @@
 - 기본 함수 정의
 - 매개변수
 - 반환값
-- f-string 포맷팅
 
 ### 4️⃣ 클래스 & 객체지향
 - 클래스 생성
-- 생성자 (__init__)
+- 생성자
 - 메서드
 - 상속
 - 오버라이딩
@@ -42,9 +42,4 @@
 - import
 - __name__ == "__main__"
 
----
 
-## ▶ 실행 방법
-
-```bash
-python 파일명.py
