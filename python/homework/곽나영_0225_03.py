@@ -4,7 +4,6 @@ num1 = int(input("첫번째 숫자를 입력하시오 => "))
 num2 = int(input("두번째 숫자를 입력하시오 => "))
 
 result = 0
-count = 1
 
 if num1 < num2:
     for i in range(num1, num2 + 1):
@@ -17,8 +16,7 @@ if num1 < num2:
             print("%d * %d = %2d" % (i, j, result), end="\t\t")
         print("")
 
-
-if num2 < num1:
+else:
     for i in range(num2, num1 + 1):
         print(" ** %d단 ** " % i, end="\t\t")
 
