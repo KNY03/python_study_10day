@@ -10,7 +10,7 @@ f = open("output.csv", "w", encoding="utf-8", newline='')
 # csv.QUOTE_ALL : 모두 사용하겠단 의미
 # delimiter : 구분자, 기본적으로 , 를 사용함
 wr = csv.writer(f, delimiter=',', quotechar="'",quoting=csv.QUOTE_ALL)
-
+print(wr)
 wr.writerow((1, "김미정", False)) # 행 단위로 추가한다
 wr.writerow([2, "박상미", True])
 
