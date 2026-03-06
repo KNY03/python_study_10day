@@ -1,5 +1,11 @@
 ﻿from 곽나영_0305_02 import Sungjuk
 
+# import sys, os
+#
+# sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sample_problems"))
+#
+# from sungjuk_05_class import Sungjuk # 빨간 줄은 뜨지만 사용이 가능함
+
 lst = []
 
 def menu_title():

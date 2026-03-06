@@ -1,4 +1,7 @@
-﻿class Person:
+﻿import abc
+
+
+class Person:
     def __init__(self, name, age, address):
         self.hello = "Hello"
         self.name = name
@@ -70,3 +73,178 @@ if __name__ == '__main__':
     james.name = "anan"
     print(james.name)
     james.pay(100)
+
+
+##########################################################
+# 클래스 상속
+class Person:
+    def greeting(self):
+        print("Hello!!")
+
+class Student(Person):  # 지금은 단일 상속이지만 파이썬은 다중상속이 가능하다
+    def study(self):
+        print("공부하기")
+
+james = Student()
+james.greeting()
+james.study()
+
+
+class Person:
+    def greeting(self):
+        print("Hello!!")
+
+class PersonList:
+        def __init__(self):
+            self.person_list = []
+
+        def append_person(self, person):
+            self.person_list.append(person)
+
+if __name__ == '__main__':
+    person = Person()
+    person.greeting()
+    pl = PersonList()
+    pl.append_person(person)
+    print(pl.person_list)
+    pl.person_list[0].greeting()
+
+###############################################
+# 기반 클래스의 상속
+class Person:
+    def __init__(self):
+        print('person __init__')
+        self.hello = "Hello"
+
+class Student(Person):
+    def __init__(self):
+        super().__init__()  # 이게 있으면 밑에 오류가 없음
+        print('student __init__')
+        self.school = "python coding stamp"
+
+james = Student()
+print(james.school)
+print(james.hello)  # 에러 발생
+# 파이썬은 안됨
+# 기반클래스를 호출하지 않음
+
+print()
+class Person:
+    def __init__(self):
+        print('person __init__')
+        self.hello = "Hello"
+
+class Student(Person):
+    pass
+
+james = Student()
+print(james.hello)
+
+#################################################
+# 다중 상속
+print()
+class Person:
+    def __init__(self):
+        print('person __init__')
+    def greeting(self):
+        print("Hello!!")
+
+class University:
+    def __init__(self):
+        print('university __init__')
+    def manage_credit(self):
+        print("학점 관리")
+    def greeting(self):
+        print("Hi")
+
+class Undergraduate(Person, University):
+    def study(self):
+        print("공부하기")
+
+james = Undergraduate()
+james.greeting()
+james.manage_credit()
+james.study()
+
+###################################################
+# 다이아몬드 상속
+# 잘못된 상속이다.
+# 사용하지 않는 편이 좋음
+print()
+class A:
+    def greeting(self):
+        print("A")
+
+class B(A):
+    def greeting(self):
+        print("B")
+
+class C(A):
+    def greeting(self):
+        print("C")
+
+class D(B,C):
+    pass
+
+
+x = D()
+x.greeting()
+
+
+
+################################################
+# 추상 클래스
+"""
+자식 클래스가 반드시 구현하도록 강제하기 위해
+
+공통 인터페이스(형식)를 만들기 위해
+
+코드 구조를 통일하기 위해
+"""
+
+print()
+from abc import *
+
+class StudentBase(metaclass=abc.ABCMeta):
+    @abstractmethod
+    def study(self):
+        pass
+
+    @abstractmethod
+    def go_to_school(self):
+        pass
+
+class Student(StudentBase):
+    def study(self):
+        print("study!!")
+
+    def go_to_school(self):
+        print("go to school!!")
+
+class Student2(StudentBase):
+    def study(self):
+        print("playing game!!")
+
+    def go_to_school(self):
+        print("Student2 go to playground!!")
+
+    def sleep(self):
+        print("sleep!!")
+
+james = Student()
+james.study()
+james.go_to_school()
+print("---")
+mian = Student2()
+mian.study()
+mian.go_to_school()
+mian.sleep()
+print("---")
+lst = []
+lst.append(james)
+lst.append(mian)
+for item in lst:
+    item.study()
+    item.go_to_school()
+    print("---")
+
